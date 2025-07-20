@@ -1,0 +1,54 @@
+body{
+    background-image: url("bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  /* filter: drop-shadow(50px); */
+}
+.banner{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+      /* overflow: hidden;   */
+      /*to hide over pic  */
+    position: relative;
+    margin-top: 50px;
+}
+.banner .slider{
+    position: absolute;
+    width: 200px ;
+    height: 250px;
+    top: 40%;
+    left: 40%;
+    /* left: calc(50% - 100px); */
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 10s linear infinite; 
+    /* to run in time in postn and how many time */
+    /* box-shadow: inset; */
+}
+@keyframes autoRun{
+    from{
+        transform: perspective(1000px) rotateY(0deg); 
+    } 
+to {
+    transform: perspective(1000px) rotateY(360deg); 
+}
+}
+.banner .slider .item{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  /* transform:  rotateY(calc((var(--position)-1)*(360/var(--quantity))*1deg)); */
+  /* transform: rotateY(90deg); */
+   transform:
+  rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+  translateZ(300px);/*//radius  or size of circle */
+}
+.banner .slider .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-top: 20%;
+}
